@@ -1,6 +1,7 @@
 {
 	"name": "@toocolder/vue-password-field",
 	"description": "Input security password component from vue.",
+	"version": "1.0.0",
 	"author": "Bill li",
 	"license": "MIT",
 	"bugs": {
@@ -102,6 +103,5 @@
 			"stylelint --fix",
 			"git add"
 		]
-	},
-	"version": "2.6.0"
+	}
 }
