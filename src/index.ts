@@ -66,7 +66,7 @@ export default defineComponent({
 			validator: (v) => requirementRules.map(entry => entry.key).some(e => e === v)
 		},
 		minimumCharacters: { type: Number, default: 8},
-		containAccounts: { type: [], default: ['admin']},
+		containAccounts: { type: [], default: []},
 		trans: { type: Function, default: (k: string, locale?: string) => k}
 	},
 	emits: ['update:modelValue'],
