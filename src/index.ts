@@ -25,7 +25,7 @@ const icons: {
 interface PasswordRequirementRuleInterface {
 	key: string,
 	message: string,
-	rule: (args: string, callback?: Function),
+	rule: (args: string, callback?: Function) => {},
 }
 
 const requirementRules: PasswordRequirementRuleInterface[] = [
@@ -61,16 +61,22 @@ export default defineComponent({
 	props: {
 		modelValue: { type: String, default: '' },
 		requirements: {
-			type: [],
+			type: Array,
 			default: ['containBothLowerUpper', 'minimumCharacters', 'containNumberOrSymbol', 'notContainAccounts'],
 			validator: (v) => requirementRules.map(entry => entry.key).some(e => e === v)
 		},
 		minimumCharacters: { type: Number, default: 8},
-		containAccounts: { type: [], default: []},
+		containAccounts: { type: Array, default: []},
 		trans: { type: Function, default: (k: string, locale?: string) => k}
 	},
 	emits: ['update:modelValue'],
-	setup({modelValue, requirements, minimumCharacters, containAccounts, trans}, context) {
+	setup({
+		modelValue,
+		requirements,
+		minimumCharacters,
+		containAccounts,
+		trans
+	}, context) {
 		const data = reactive<PasswordDataInterface>({
 			isPlaintext: false,
 			isShowTips: false,
