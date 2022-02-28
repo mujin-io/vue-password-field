@@ -57,7 +57,7 @@ const requirementRules: PasswordRequirementRuleInterface[] = [
 ];
 
 export default defineComponent({
-	name: 'ofcold-password-field',
+	name: 'mujin-password-field',
 	props: {
 		modelValue: { type: String, default: '' },
 		requirements: {
